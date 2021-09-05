@@ -23,5 +23,11 @@ namespace FlashcardLibrary.Models
         /// User's email
         /// </summary>
         public string Email { get; set; }
+
+        // TODO - Add password hashing
+        /// <summary>
+        /// User's password (for testing purposes this is initially just plain text)
+        /// </summary>
+        public string Password { get; set; }
     }
 }

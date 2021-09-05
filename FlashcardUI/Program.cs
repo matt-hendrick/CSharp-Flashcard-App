@@ -1,3 +1,4 @@
+using FlashcardLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace FlashcardUI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+
+            // Initialize DB connection
+            DatabaseConnector.InitializeConnections();
+
+            Application.Run(new CreateAccountForm());
         }
     }
 }
