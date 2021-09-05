@@ -4,7 +4,24 @@ using System.Text;
 
 namespace FlashcardLibrary.Models
 {
-    class DeckModel
+    /// <summary>
+    /// Represents a flashcard deck
+    /// </summary>
+    public class DeckModel
     {
+        /// <summary>
+        /// Unique ID for the deck
+        /// </summary>
+        public int ID { get; set; }
+
+        /// <summary>
+        /// The name of the deck
+        /// </summary>
+        public string DeckName { get; set; }
+
+        /// <summary>
+        /// The list of cards in the deck
+        /// </summary>
+        public List<CardModel> CardList { get; set; }
     }
 }
