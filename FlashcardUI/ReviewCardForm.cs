@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlashcardLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +11,39 @@ namespace FlashcardUI
 {
     public partial class ReviewCardForm : Form
     {
-        public ReviewCardForm()
+        private CardModel currentCard;
+        private bool frontVisible = true;
+
+        public ReviewCardForm(CardModel card)
         {
             InitializeComponent();
+
+            currentCard = card;
+
+            LoadCardFront(currentCard);
         }
 
+        private void LoadCardFront(CardModel card)
+        {
+            cardTextLabel.Text = card.CardFront;
+        }
+
+        private void flipButton_Click(object sender, EventArgs e)
+        {
+            cardTextLabel.Text = null;
+
+            if (frontVisible)
+            {
+                cardTextLabel.Text = currentCard.CardBack;
+
+                frontVisible = false;
+            }
+            else
+            {
+                cardTextLabel.Text = currentCard.CardFront;
+
+                frontVisible = true;
+            }
+        }
     }
 }

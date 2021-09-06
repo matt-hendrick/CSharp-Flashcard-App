@@ -42,5 +42,17 @@ namespace FlashcardUI
             cardListbox.DataSource = availableCards;
             cardListbox.DisplayMember = "CombinedName";
         }
+
+        private void reviewSelectedButton_Click(object sender, EventArgs e)
+        {
+            CardModel selectedCard = (CardModel)cardListbox.SelectedItem;
+
+            if (selectedCard != null)
+            {
+                ReviewCardForm form = new ReviewCardForm(selectedCard);
+                form.Show();
+            }
+
+    }
     }
 }

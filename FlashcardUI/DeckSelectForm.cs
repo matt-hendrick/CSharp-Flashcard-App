@@ -33,8 +33,13 @@ namespace FlashcardUI
         private void openSelectedButton_Click(object sender, EventArgs e)
         {
             DeckModel deck = (DeckModel)deckListbox.SelectedItem;
-            ViewDeckForm form = new ViewDeckForm(deck);
-            form.Show();
+
+            if (deck != null)
+            {
+                 ViewDeckForm form = new ViewDeckForm(deck);
+                 form.Show();
+            }
+           
         }
     }
 }

@@ -65,6 +65,7 @@ namespace FlashcardUI
             this.reviewSelectedButton.TabIndex = 14;
             this.reviewSelectedButton.Text = "Review";
             this.reviewSelectedButton.UseVisualStyleBackColor = true;
+            this.reviewSelectedButton.Click += new System.EventHandler(this.reviewSelectedButton_Click);
             // 
             // createNewButton
             // 

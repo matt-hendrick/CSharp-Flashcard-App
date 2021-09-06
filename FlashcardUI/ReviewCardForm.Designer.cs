@@ -33,7 +33,6 @@ namespace FlashcardUI
             this.hardButton = new System.Windows.Forms.Button();
             this.againButton = new System.Windows.Forms.Button();
             this.easyButton = new System.Windows.Forms.Button();
-            this.cardFrontLabel = new System.Windows.Forms.Label();
             this.cardTextLabel = new System.Windows.Forms.Label();
             this.flipButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
@@ -99,16 +98,6 @@ namespace FlashcardUI
             this.easyButton.Text = "Easy";
             this.easyButton.UseVisualStyleBackColor = true;
             // 
-            // cardFrontLabel
-            // 
-            this.cardFrontLabel.AutoSize = true;
-            this.cardFrontLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cardFrontLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.cardFrontLabel.Location = new System.Drawing.Point(36, 49);
-            this.cardFrontLabel.Name = "cardFrontLabel";
-            this.cardFrontLabel.Size = new System.Drawing.Size(0, 30);
-            this.cardFrontLabel.TabIndex = 21;
-            // 
             // cardTextLabel
             // 
             this.cardTextLabel.AutoSize = true;
@@ -135,6 +124,7 @@ namespace FlashcardUI
             this.flipButton.TabIndex = 23;
             this.flipButton.Text = "Flip Card";
             this.flipButton.UseVisualStyleBackColor = true;
+            this.flipButton.Click += new System.EventHandler(this.flipButton_Click);
             // 
             // goBackButton
             // 
@@ -160,7 +150,6 @@ namespace FlashcardUI
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.flipButton);
             this.Controls.Add(this.cardTextLabel);
-            this.Controls.Add(this.cardFrontLabel);
             this.Controls.Add(this.goodButton);
             this.Controls.Add(this.hardButton);
             this.Controls.Add(this.againButton);
@@ -178,7 +167,6 @@ namespace FlashcardUI
         private System.Windows.Forms.Button hardButton;
         private System.Windows.Forms.Button againButton;
         private System.Windows.Forms.Button easyButton;
-        private System.Windows.Forms.Label cardFrontLabel;
         private System.Windows.Forms.Label cardTextLabel;
         private System.Windows.Forms.Button flipButton;
         private System.Windows.Forms.Button goBackButton;
