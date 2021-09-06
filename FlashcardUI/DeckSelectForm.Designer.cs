@@ -104,6 +104,7 @@ namespace FlashcardUI
             this.openSelectedButton.TabIndex = 19;
             this.openSelectedButton.Text = "Open";
             this.openSelectedButton.UseVisualStyleBackColor = true;
+            this.openSelectedButton.Click += new System.EventHandler(this.openSelectedButton_Click);
             // 
             // createNewButton
             // 

@@ -12,18 +12,32 @@ namespace FlashcardUI
 {
     public partial class ViewDeckForm : Form
     {
-        // TODO - use active deck ID to pull cards
-        private List<CardModel> availableCards = DatabaseConnector.Connection.GetAll_Cards(1);
 
-        public ViewDeckForm()
+        private DeckModel currentDeck;
+        BindingList<CardModel> availableCards = new BindingList<CardModel>();
+
+        public ViewDeckForm(DeckModel deck)
         {
             InitializeComponent();
+
+            currentDeck = deck;
+
+            LoadCards(currentDeck);
 
             InitializeList();
         }
 
+        private void LoadCards(DeckModel deck)
+        {
+            List<CardModel> cardsInDeck = DatabaseConnector.Connection.GetAll_Cards(deck.ID);
+
+            foreach (CardModel card in cardsInDeck)
+            {
+                availableCards.Add(card);
+            }
+        }
+        
         private void InitializeList() {
-            cardListbox.DataSource = null;
 
             cardListbox.DataSource = availableCards;
             cardListbox.DisplayMember = "CombinedName";

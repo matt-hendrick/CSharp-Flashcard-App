@@ -26,9 +26,15 @@ namespace FlashcardUI
         {
             deckListbox.DataSource = null;
 
-
             deckListbox.DataSource = availableDecks;
             deckListbox.DisplayMember = "DeckName";
+        }
+
+        private void openSelectedButton_Click(object sender, EventArgs e)
+        {
+            DeckModel deck = (DeckModel)deckListbox.SelectedItem;
+            ViewDeckForm form = new ViewDeckForm(deck);
+            form.Show();
         }
     }
 }
