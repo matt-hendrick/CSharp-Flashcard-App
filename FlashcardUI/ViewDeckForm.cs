@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FlashcardUI
 {
-    public partial class ViewDeckForm : Form
+    public partial class ViewDeckForm : Form, ICardRequester
     {
 
         private DeckModel currentDeck;
@@ -38,7 +38,6 @@ namespace FlashcardUI
         }
         
         private void InitializeList() {
-
             cardListbox.DataSource = availableCards;
             cardListbox.DisplayMember = "CombinedName";
         }
@@ -54,5 +53,17 @@ namespace FlashcardUI
             }
 
     }
+
+        private void createNewButton_Click(object sender, EventArgs e)
+        {
+            CreateCardForm form = new CreateCardForm(this);
+            form.Show();
+        }
+
+        public void CardCreationComplete(CardModel card)
+        {
+            availableCards.Add(card);
+            InitializeList();
+        }
     }
 }

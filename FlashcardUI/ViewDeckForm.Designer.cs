@@ -81,6 +81,7 @@ namespace FlashcardUI
             this.createNewButton.TabIndex = 13;
             this.createNewButton.Text = "Create New";
             this.createNewButton.UseVisualStyleBackColor = true;
+            this.createNewButton.Click += new System.EventHandler(this.createNewButton_Click);
             // 
             // deleteSelectedButton
             // 

@@ -12,9 +12,13 @@ namespace FlashcardUI
 {
     public partial class CreateCardForm : Form
     {
-        public CreateCardForm()
+        ICardRequester callingForm;
+
+        public CreateCardForm(ICardRequester caller)
         {
             InitializeComponent();
+
+            callingForm = caller;
         }
 
         private void createCardButton_Click(object sender, EventArgs e)
@@ -28,6 +32,10 @@ namespace FlashcardUI
 
                 // TODO - make IDs = to current logged in user and active deck
                 DatabaseConnector.Connection.CreateCard(card, 1);
+
+                callingForm.CardCreationComplete(card);
+
+                this.Close();
             }
             else
             {
