@@ -90,5 +90,20 @@ namespace FlashcardLibrary
 
             return cardList;
         }
+
+        public List<DeckModel> GetAll_Decks(int UserID)
+        {
+            List<DeckModel> deckList;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@UserID", UserID);
+                deckList = connection.Query<DeckModel>("dbo.spDecks_GetAll", parameters, commandType: CommandType.StoredProcedure).ToList();
+            }
+
+            return deckList;
+        }
     }
 }
