@@ -12,9 +12,13 @@ namespace FlashcardUI
 {
     public partial class CreateDeckForm : Form
     {
-        public CreateDeckForm()
+        IDeckRequester callingForm;
+
+        public CreateDeckForm(IDeckRequester caller)
         {
             InitializeComponent();
+
+            callingForm = caller;
         }
 
         private void createDeckButton_Click(object sender, EventArgs e)
@@ -27,6 +31,10 @@ namespace FlashcardUI
 
                 // TODO - make ID = to current logged in user
                 DatabaseConnector.Connection.CreateDeck(deck, 1);
+
+                callingForm.DeckCreationComplete(deck);
+
+                this.Close();
             }
             else
             {

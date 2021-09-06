@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FlashcardUI
 {
-    public partial class DeckSelectForm : Form
+    public partial class DeckSelectForm : Form, IDeckRequester
     { 
         // TODO - use active user ID to pull decks
         private List<DeckModel> availableDecks = DatabaseConnector.Connection.GetAll_Decks(1);
@@ -40,6 +40,18 @@ namespace FlashcardUI
                  form.Show();
             }
            
+        }
+
+        private void createNewButton_Click(object sender, EventArgs e)
+        {
+            CreateDeckForm form = new CreateDeckForm(this);
+            form.Show();
+        }
+
+        public void DeckCreationComplete(DeckModel deck)
+        {
+            availableDecks.Add(deck);
+            InitializeList();
         }
     }
 }
