@@ -23,5 +23,10 @@ namespace FlashcardLibrary.Models
         /// The list of cards in the deck
         /// </summary>
         public List<CardModel> CardList { get; set; }
+
+        /// <summary>
+        /// Unique ID for the user
+        /// </summary>
+        public int UserID { get; set; }
     }
 }

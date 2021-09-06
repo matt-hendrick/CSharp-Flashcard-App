@@ -14,10 +14,10 @@ namespace FlashcardLibrary
 
         public static IDataConnector Connection { get; private set; }
 
-        public static void InitializeConnections()
+        public static void InitializeDatabaseConnection()
         {
-            DatabaseConnector sql = new DatabaseConnector();
-            Connection = sql;
+            DatabaseConnector connection = new DatabaseConnector();
+            Connection = connection;
         }
 
         public static string ConnectionString(string name)
@@ -42,15 +42,38 @@ namespace FlashcardLibrary
             }
         }
 
-        public void CreateCard(CardModel card)
+        public void CreateDeck(DeckModel deck, int UserID)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@DeckName", deck.DeckName);
+                parameters.Add("@UserID", UserID);
+                parameters.Add("@ID", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spDecks_Insert", parameters, commandType: CommandType.StoredProcedure);
+
+                deck.ID = parameters.Get<int>("@ID");
+            }
         }
 
-        public void CreateDeck(DeckModel deck)
+        public void CreateCard(CardModel card, int UserID, int DeckID)
         {
-            throw new NotImplementedException();
-        }
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
 
+                parameters.Add("@CardFront", card.CardFront);
+                parameters.Add("@CardBack", card.CardBack);
+                parameters.Add("@UserID", UserID);
+                parameters.Add("@DeckID", DeckID);
+                parameters.Add("@ID", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spCards_Insert", parameters, commandType: CommandType.StoredProcedure);
+
+                card.ID = parameters.Get<int>("@ID");
+            }
+        }
     }
 }

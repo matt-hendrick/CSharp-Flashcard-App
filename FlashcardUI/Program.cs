@@ -20,9 +20,9 @@ namespace FlashcardUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize DB connection
-            DatabaseConnector.InitializeConnections();
+            DatabaseConnector.InitializeDatabaseConnection();
 
-            Application.Run(new CreateAccountForm());
+            Application.Run(new CreateCardForm());
         }
     }
 }

@@ -23,5 +23,15 @@ namespace FlashcardLibrary.Models
         /// The back of the flashcard
         /// </summary>
         public string CardBack { get; set; }
+
+        /// <summary>
+        /// Unique ID for the user
+        /// </summary>
+        public int UserID { get; set; }
+
+        /// <summary>
+        /// Unique ID for the deck
+        /// </summary>
+        public int DeckID { get; set; }
     }
 }

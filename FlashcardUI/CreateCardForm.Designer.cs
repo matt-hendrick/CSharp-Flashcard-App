@@ -50,6 +50,7 @@ namespace FlashcardUI
             this.createCardButton.TabIndex = 9;
             this.createCardButton.Text = "Create Card";
             this.createCardButton.UseVisualStyleBackColor = true;
+            this.createCardButton.Click += new System.EventHandler(this.createCardButton_Click);
             // 
             // cardBackLabel
             // 

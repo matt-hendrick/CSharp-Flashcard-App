@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlashcardLibrary;
+using FlashcardLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,32 @@ namespace FlashcardUI
         public CreateCardForm()
         {
             InitializeComponent();
+        }
+
+        private void createCardButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateForm())
+            {
+                CardModel card = new CardModel();
+
+                card.CardFront = cardFrontTextbox.Text;
+                card.CardBack = cardBackTextbox.Text;
+
+                // TODO - make IDs = to current logged in user and active deck
+                DatabaseConnector.Connection.CreateCard(card, 1, 1);
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information. Please check it and try again.");
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            // if any of the fields are empty, return false
+            if (cardFrontTextbox.Text.Length < 1 || cardBackTextbox.Text.Length < 1) return false;
+
+            return true;
         }
     }
 }

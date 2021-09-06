@@ -9,8 +9,8 @@ namespace FlashcardLibrary
     {
         void CreateUser(UserModel user);
 
-        void CreateDeck(DeckModel deck);
+        void CreateDeck(DeckModel deck, int UserID);
 
-        void CreateCard(CardModel card);
+        void CreateCard(CardModel card, int UserID, int DeckID);
     }
 }

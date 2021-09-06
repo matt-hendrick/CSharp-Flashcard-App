@@ -49,6 +49,7 @@ namespace FlashcardUI
             this.createDeckButton.TabIndex = 14;
             this.createDeckButton.Text = "Create Deck";
             this.createDeckButton.UseVisualStyleBackColor = false;
+            this.createDeckButton.Click += new System.EventHandler(this.createDeckButton_Click);
             // 
             // deckNameLabel
             // 
@@ -67,6 +68,7 @@ namespace FlashcardUI
             this.deckNameTextbox.BackColor = System.Drawing.Color.White;
             this.deckNameTextbox.Location = new System.Drawing.Point(160, 56);
             this.deckNameTextbox.Name = "deckNameTextbox";
+            this.deckNameTextbox.ShortcutsEnabled = false;
             this.deckNameTextbox.Size = new System.Drawing.Size(265, 23);
             this.deckNameTextbox.TabIndex = 10;
             // 
