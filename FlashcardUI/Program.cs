@@ -22,7 +22,7 @@ namespace FlashcardUI
             // Initialize DB connection
             DatabaseConnector.InitializeDatabaseConnection();
 
-            Application.Run(new CreateCardForm());
+            Application.Run(new ViewDeckForm());
         }
     }
 }

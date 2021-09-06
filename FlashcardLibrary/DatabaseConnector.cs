@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace FlashcardLibrary
@@ -58,7 +59,7 @@ namespace FlashcardLibrary
             }
         }
 
-        public void CreateCard(CardModel card, int UserID, int DeckID)
+        public void CreateCard(CardModel card, int DeckID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
             {
@@ -66,7 +67,6 @@ namespace FlashcardLibrary
 
                 parameters.Add("@CardFront", card.CardFront);
                 parameters.Add("@CardBack", card.CardBack);
-                parameters.Add("@UserID", UserID);
                 parameters.Add("@DeckID", DeckID);
                 parameters.Add("@ID", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
@@ -74,6 +74,21 @@ namespace FlashcardLibrary
 
                 card.ID = parameters.Get<int>("@ID");
             }
+        }
+
+        public List<CardModel> GetAll_Cards(int DeckID)
+        {
+            List<CardModel> cardList;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@DeckID", DeckID);
+                cardList = connection.Query<CardModel>("dbo.spCards_GetAll", parameters, commandType: CommandType.StoredProcedure).ToList();
+            }
+
+            return cardList;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace FlashcardUI
                 card.CardBack = cardBackTextbox.Text;
 
                 // TODO - make IDs = to current logged in user and active deck
-                DatabaseConnector.Connection.CreateCard(card, 1, 1);
+                DatabaseConnector.Connection.CreateCard(card, 1);
             }
             else
             {

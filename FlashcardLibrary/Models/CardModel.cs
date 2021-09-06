@@ -25,13 +25,19 @@ namespace FlashcardLibrary.Models
         public string CardBack { get; set; }
 
         /// <summary>
-        /// Unique ID for the user
-        /// </summary>
-        public int UserID { get; set; }
-
-        /// <summary>
         /// Unique ID for the deck
         /// </summary>
         public int DeckID { get; set; }
+
+        /// <summary>
+        /// Combined front/back card text
+        /// </summary>
+        public string CombinedName
+        {
+            get
+            {
+                return $"{CardFront} === {CardBack}";
+            }
+        }
     }
 }
