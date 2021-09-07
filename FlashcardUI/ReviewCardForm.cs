@@ -21,12 +21,12 @@ namespace FlashcardUI
 
             cardsInDeck = cardList;
 
-            LoadCardFront(cardsInDeck[currentIndex]);
+            LoadCardFront();
         }
 
-        private void LoadCardFront(CardModel card)
+        private void LoadCardFront()
         {
-            cardTextLabel.Text = card.CardFront;
+            cardTextLabel.Text = cardsInDeck[currentIndex].CardFront;
         }
 
         private void flipButton_Click(object sender, EventArgs e)
@@ -45,6 +45,38 @@ namespace FlashcardUI
 
                 frontVisible = true;
             }
+        }
+
+        private void IterateThroughDeck()
+        {
+            if (currentIndex >= cardsInDeck.Count - 1)
+            {
+                currentIndex = 0;
+            }
+            else currentIndex++;
+            LoadCardFront();
+        }
+
+        
+        // TODO - Eventually store different difficulty values upon different button clicks
+        private void againButton_Click(object sender, EventArgs e)
+        {
+            IterateThroughDeck();
+        }
+
+        private void hardButton_Click(object sender, EventArgs e)
+        {
+            IterateThroughDeck();
+        }
+
+        private void goodButton_Click(object sender, EventArgs e)
+        {
+            IterateThroughDeck();
+        }
+
+        private void easyButton_Click(object sender, EventArgs e)
+        {
+            IterateThroughDeck();
         }
     }
 }

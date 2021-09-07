@@ -52,6 +52,7 @@ namespace FlashcardUI
             this.goodButton.TabIndex = 20;
             this.goodButton.Text = "Good";
             this.goodButton.UseVisualStyleBackColor = true;
+            this.goodButton.Click += new System.EventHandler(this.goodButton_Click);
             // 
             // hardButton
             // 
@@ -67,6 +68,7 @@ namespace FlashcardUI
             this.hardButton.TabIndex = 19;
             this.hardButton.Text = "Hard";
             this.hardButton.UseVisualStyleBackColor = true;
+            this.hardButton.Click += new System.EventHandler(this.hardButton_Click);
             // 
             // againButton
             // 
@@ -82,6 +84,7 @@ namespace FlashcardUI
             this.againButton.TabIndex = 18;
             this.againButton.Text = "Again";
             this.againButton.UseVisualStyleBackColor = true;
+            this.againButton.Click += new System.EventHandler(this.againButton_Click);
             // 
             // easyButton
             // 
@@ -97,6 +100,7 @@ namespace FlashcardUI
             this.easyButton.TabIndex = 17;
             this.easyButton.Text = "Easy";
             this.easyButton.UseVisualStyleBackColor = true;
+            this.easyButton.Click += new System.EventHandler(this.easyButton_Click);
             // 
             // cardTextLabel
             // 
