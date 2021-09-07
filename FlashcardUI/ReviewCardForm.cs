@@ -57,8 +57,6 @@ namespace FlashcardUI
             InitializeCard();
         }
 
-        
-        // TODO - Eventually store different difficulty values upon different button clicks
         private void againButton_Click(object sender, EventArgs e)
         {
             IterateThroughDeck();
