@@ -86,5 +86,21 @@ namespace FlashcardLibrary
 
             return deckList;
         }
+
+        public void DeleteDeck(int DeckID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCard(int CardID)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@ID", CardID);
+
+                connection.Execute("dbo.spCards_DeleteACard", parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }

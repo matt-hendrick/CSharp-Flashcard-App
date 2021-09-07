@@ -84,6 +84,7 @@ namespace FlashcardUI
             this.deleteSelectedButton.TabIndex = 12;
             this.deleteSelectedButton.Text = "Delete";
             this.deleteSelectedButton.UseVisualStyleBackColor = true;
+            this.deleteSelectedButton.Click += new System.EventHandler(this.deleteSelectedButton_Click);
             // 
             // cardListbox
             // 

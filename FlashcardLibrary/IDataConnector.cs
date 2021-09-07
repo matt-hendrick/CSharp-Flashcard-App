@@ -12,8 +12,12 @@ namespace FlashcardLibrary
 
         void CreateCard(CardModel card, int DeckID);
 
+        List<DeckModel> GetAll_Decks();
+
         List<CardModel> GetAll_Cards(int DeckID);
 
-        List<DeckModel> GetAll_Decks();
+        void DeleteDeck(int DeckID);
+
+        void DeleteCard(int CardID);
     }
 }

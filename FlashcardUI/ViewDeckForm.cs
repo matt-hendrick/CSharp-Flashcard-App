@@ -15,6 +15,7 @@ namespace FlashcardUI
 
         private DeckModel currentDeck;
         BindingList<CardModel> availableCards = new BindingList<CardModel>();
+        private CardModel selectedCard = new CardModel();
 
         public ViewDeckForm(DeckModel deck)
         {
@@ -76,6 +77,19 @@ namespace FlashcardUI
         private void goBackButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void deleteSelectedButton_Click(object sender, EventArgs e)
+        {
+            selectedCard = (CardModel)cardListbox.SelectedItem;
+
+            if (selectedCard != null)
+            {
+                DatabaseConnector.Connection.DeleteCard(selectedCard.ID);
+
+                availableCards.Remove(selectedCard);
+            }
+            InitializeDeck();
         }
     }
 }
