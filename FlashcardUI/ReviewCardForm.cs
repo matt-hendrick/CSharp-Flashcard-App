@@ -11,16 +11,17 @@ namespace FlashcardUI
 {
     public partial class ReviewCardForm : Form
     {
-        private CardModel currentCard;
+        private List<CardModel> cardsInDeck = new List<CardModel>();
+        private int currentIndex = 0;
         private bool frontVisible = true;
 
-        public ReviewCardForm(CardModel card)
+        public ReviewCardForm(List<CardModel> cardList)
         {
             InitializeComponent();
 
-            currentCard = card;
+            cardsInDeck = cardList;
 
-            LoadCardFront(currentCard);
+            LoadCardFront(cardsInDeck[currentIndex]);
         }
 
         private void LoadCardFront(CardModel card)
@@ -34,13 +35,13 @@ namespace FlashcardUI
 
             if (frontVisible)
             {
-                cardTextLabel.Text = currentCard.CardBack;
+                cardTextLabel.Text = cardsInDeck[currentIndex].CardBack;
 
                 frontVisible = false;
             }
             else
             {
-                cardTextLabel.Text = currentCard.CardFront;
+                cardTextLabel.Text = cardsInDeck[currentIndex].CardFront;
 
                 frontVisible = true;
             }

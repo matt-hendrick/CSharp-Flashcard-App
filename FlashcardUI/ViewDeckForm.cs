@@ -44,11 +44,16 @@ namespace FlashcardUI
 
         private void reviewSelectedButton_Click(object sender, EventArgs e)
         {
-            CardModel selectedCard = (CardModel)cardListbox.SelectedItem;
+            List<CardModel> cardsInDeck = new List<CardModel>();
 
-            if (selectedCard != null)
+            foreach (CardModel card in availableCards)
             {
-                ReviewCardForm form = new ReviewCardForm(selectedCard);
+                cardsInDeck.Add(card);
+            }
+
+            if (cardsInDeck != null && cardsInDeck.Count > 0)
+            {
+                ReviewCardForm form = new ReviewCardForm(cardsInDeck);
                 form.Show();
             }
 
