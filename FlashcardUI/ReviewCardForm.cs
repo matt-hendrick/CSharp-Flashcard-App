@@ -21,10 +21,10 @@ namespace FlashcardUI
 
             cardsInDeck = cardList;
 
-            LoadCardFront();
+            InitializeCard();
         }
 
-        private void LoadCardFront()
+        private void InitializeCard()
         {
             cardTextLabel.Text = cardsInDeck[currentIndex].CardFront;
         }
@@ -54,7 +54,7 @@ namespace FlashcardUI
                 currentIndex = 0;
             }
             else currentIndex++;
-            LoadCardFront();
+            InitializeCard();
         }
 
         
