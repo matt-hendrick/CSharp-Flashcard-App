@@ -24,7 +24,7 @@ namespace FlashcardUI
 
             LoadCards(currentDeck);
 
-            InitializeList();
+            InitializeDeck();
         }
 
         private void LoadCards(DeckModel deck)
@@ -37,7 +37,9 @@ namespace FlashcardUI
             }
         }
         
-        private void InitializeList() {
+        private void InitializeDeck() {
+            deckNameLabel.Text = currentDeck.DeckName;
+
             cardListbox.DataSource = availableCards;
             cardListbox.DisplayMember = "CombinedName";
         }
@@ -68,8 +70,12 @@ namespace FlashcardUI
         public void CardCreationComplete(CardModel card)
         {
             availableCards.Add(card);
-            InitializeList();
+            InitializeDeck();
         }
 
+        private void goBackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

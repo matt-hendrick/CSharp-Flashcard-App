@@ -145,6 +145,7 @@ namespace FlashcardUI
             this.goBackButton.TabIndex = 24;
             this.goBackButton.Text = "Go Back";
             this.goBackButton.UseVisualStyleBackColor = true;
+            this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
             // 
             // ReviewCardForm
             // 
