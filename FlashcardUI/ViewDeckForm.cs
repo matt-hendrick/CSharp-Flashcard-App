@@ -70,5 +70,6 @@ namespace FlashcardUI
             availableCards.Add(card);
             InitializeList();
         }
+
     }
 }

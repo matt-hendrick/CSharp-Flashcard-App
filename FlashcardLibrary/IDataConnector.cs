@@ -7,14 +7,13 @@ namespace FlashcardLibrary
 {
     public interface IDataConnector
     {
-        void CreateUser(UserModel user);
 
-        void CreateDeck(DeckModel deck, int UserID);
+        void CreateDeck(DeckModel deck);
 
         void CreateCard(CardModel card, int DeckID);
 
         List<CardModel> GetAll_Cards(int DeckID);
 
-        List<DeckModel> GetAll_Decks(int DeckID);
+        List<DeckModel> GetAll_Decks();
     }
 }

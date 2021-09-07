@@ -26,31 +26,14 @@ namespace FlashcardLibrary
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        public void CreateUser(UserModel user)
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
-            {
-                var parameters = new DynamicParameters();
 
-                parameters.Add("@Username", user.Username);
-                parameters.Add("@Email", user.Email);
-                parameters.Add("@Password", user.Password);
-                parameters.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
-
-                connection.Execute("dbo.spUsers_Insert", parameters, commandType: CommandType.StoredProcedure);
-
-                user.ID = parameters.Get<int>("@ID");
-            }
-        }
-
-        public void CreateDeck(DeckModel deck, int UserID)
+        public void CreateDeck(DeckModel deck)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
             {
                 var parameters = new DynamicParameters();
 
                 parameters.Add("@DeckName", deck.DeckName);
-                parameters.Add("@UserID", UserID);
                 parameters.Add("@ID", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spDecks_Insert", parameters, commandType: CommandType.StoredProcedure);
@@ -91,16 +74,14 @@ namespace FlashcardLibrary
             return cardList;
         }
 
-        public List<DeckModel> GetAll_Decks(int UserID)
+        public List<DeckModel> GetAll_Decks()
         {
             List<DeckModel> deckList;
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
             {
-                var parameters = new DynamicParameters();
 
-                parameters.Add("@UserID", UserID);
-                deckList = connection.Query<DeckModel>("dbo.spDecks_GetAll", parameters, commandType: CommandType.StoredProcedure).ToList();
+                deckList = connection.Query<DeckModel>("dbo.spDecks_GetAll", commandType: CommandType.StoredProcedure).ToList();
             }
 
             return deckList;

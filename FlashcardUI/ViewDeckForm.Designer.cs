@@ -29,27 +29,14 @@ namespace FlashcardUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.usernameLabel = new System.Windows.Forms.Label();
             this.reviewSelectedButton = new System.Windows.Forms.Button();
             this.createNewButton = new System.Windows.Forms.Button();
             this.deleteSelectedButton = new System.Windows.Forms.Button();
-            this.logoutButton = new System.Windows.Forms.Button();
             this.cardListbox = new System.Windows.Forms.ListBox();
             this.editSelectedButton = new System.Windows.Forms.Button();
             this.deckNameLabel = new System.Windows.Forms.Label();
             this.goBackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernameLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.usernameLabel.Location = new System.Drawing.Point(2, 5);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(106, 30);
-            this.usernameLabel.TabIndex = 15;
-            this.usernameLabel.Text = "Username";
             // 
             // reviewSelectedButton
             // 
@@ -98,21 +85,6 @@ namespace FlashcardUI
             this.deleteSelectedButton.Text = "Delete";
             this.deleteSelectedButton.UseVisualStyleBackColor = true;
             // 
-            // logoutButton
-            // 
-            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.logoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.logoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.logoutButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.logoutButton.Location = new System.Drawing.Point(477, 1);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(104, 42);
-            this.logoutButton.TabIndex = 11;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            // 
             // cardListbox
             // 
             this.cardListbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -144,7 +116,7 @@ namespace FlashcardUI
             this.deckNameLabel.AutoSize = true;
             this.deckNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.deckNameLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.deckNameLabel.Location = new System.Drawing.Point(156, 7);
+            this.deckNameLabel.Location = new System.Drawing.Point(2, 7);
             this.deckNameLabel.Name = "deckNameLabel";
             this.deckNameLabel.Size = new System.Drawing.Size(121, 30);
             this.deckNameLabel.TabIndex = 17;
@@ -158,7 +130,7 @@ namespace FlashcardUI
             this.goBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goBackButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.goBackButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.goBackButton.Location = new System.Drawing.Point(325, 1);
+            this.goBackButton.Location = new System.Drawing.Point(478, 1);
             this.goBackButton.Name = "goBackButton";
             this.goBackButton.Size = new System.Drawing.Size(104, 42);
             this.goBackButton.TabIndex = 18;
@@ -174,11 +146,9 @@ namespace FlashcardUI
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.deckNameLabel);
             this.Controls.Add(this.editSelectedButton);
-            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.reviewSelectedButton);
             this.Controls.Add(this.createNewButton);
             this.Controls.Add(this.deleteSelectedButton);
-            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.cardListbox);
             this.Name = "ViewDeckForm";
             this.Text = "ViewDeckForm";
@@ -188,12 +158,9 @@ namespace FlashcardUI
         }
 
         #endregion
-
-        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Button reviewSelectedButton;
         private System.Windows.Forms.Button createNewButton;
         private System.Windows.Forms.Button deleteSelectedButton;
-        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.ListBox cardListbox;
         private System.Windows.Forms.Button editSelectedButton;
         private System.Windows.Forms.Label deckNameLabel;

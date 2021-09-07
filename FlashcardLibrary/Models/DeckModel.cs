@@ -24,9 +24,5 @@ namespace FlashcardLibrary.Models
         /// </summary>
         public List<CardModel> CardList { get; set; }
 
-        /// <summary>
-        /// Unique ID for the user
-        /// </summary>
-        public int UserID { get; set; }
     }
 }

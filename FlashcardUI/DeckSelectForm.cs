@@ -12,8 +12,7 @@ namespace FlashcardUI
 {
     public partial class DeckSelectForm : Form, IDeckRequester
     { 
-        // TODO - use active user ID to pull decks
-        private List<DeckModel> availableDecks = DatabaseConnector.Connection.GetAll_Decks(1);
+        private List<DeckModel> availableDecks = DatabaseConnector.Connection.GetAll_Decks();
 
         public DeckSelectForm()
         {

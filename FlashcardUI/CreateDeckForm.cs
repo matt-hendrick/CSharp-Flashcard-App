@@ -29,8 +29,7 @@ namespace FlashcardUI
 
                 deck.DeckName = deckNameTextbox.Text;
 
-                // TODO - make ID = to current logged in user
-                DatabaseConnector.Connection.CreateDeck(deck, 1);
+                DatabaseConnector.Connection.CreateDeck(deck);
 
                 callingForm.DeckCreationComplete(deck);
 

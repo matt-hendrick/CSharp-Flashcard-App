@@ -30,8 +30,6 @@ namespace FlashcardUI
         private void InitializeComponent()
         {
             this.deckListbox = new System.Windows.Forms.ListBox();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.usernameLabel = new System.Windows.Forms.Label();
             this.editSelectedButton = new System.Windows.Forms.Button();
             this.openSelectedButton = new System.Windows.Forms.Button();
             this.createNewButton = new System.Windows.Forms.Button();
@@ -44,36 +42,10 @@ namespace FlashcardUI
             this.deckListbox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.deckListbox.FormattingEnabled = true;
             this.deckListbox.ItemHeight = 30;
-            this.deckListbox.Location = new System.Drawing.Point(3, 47);
+            this.deckListbox.Location = new System.Drawing.Point(3, 17);
             this.deckListbox.Name = "deckListbox";
-            this.deckListbox.Size = new System.Drawing.Size(580, 334);
+            this.deckListbox.Size = new System.Drawing.Size(580, 364);
             this.deckListbox.TabIndex = 0;
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.logoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.logoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.logoutButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.logoutButton.Location = new System.Drawing.Point(479, 3);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(104, 42);
-            this.logoutButton.TabIndex = 5;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = true;
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernameLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.usernameLabel.Location = new System.Drawing.Point(3, 3);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(106, 30);
-            this.usernameLabel.TabIndex = 9;
-            this.usernameLabel.Text = "Username";
             // 
             // editSelectedButton
             // 
@@ -147,21 +119,16 @@ namespace FlashcardUI
             this.Controls.Add(this.openSelectedButton);
             this.Controls.Add(this.createNewButton);
             this.Controls.Add(this.deleteSelectedButton);
-            this.Controls.Add(this.usernameLabel);
-            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.deckListbox);
             this.Name = "DeckSelectForm";
             this.Text = "DeckSelectForm";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ListBox deckListbox;
-        private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Button editSelectedButton;
         private System.Windows.Forms.Button openSelectedButton;
         private System.Windows.Forms.Button createNewButton;
