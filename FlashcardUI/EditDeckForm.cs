@@ -15,13 +15,13 @@ namespace FlashcardUI
         IDeckRequester callingForm;
         private int selectedDeckID = 0; 
 
-        public EditDeckForm(IDeckRequester caller, int deckID)
+        public EditDeckForm(IDeckRequester caller, int DeckID)
         {
             InitializeComponent();
 
             callingForm = caller;
 
-            selectedDeckID = deckID;
+            selectedDeckID = DeckID;
         }
 
         private void editDeckButton_Click(object sender, EventArgs e)

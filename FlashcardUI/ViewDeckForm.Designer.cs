@@ -111,6 +111,7 @@ namespace FlashcardUI
             this.editSelectedButton.TabIndex = 16;
             this.editSelectedButton.Text = "Edit";
             this.editSelectedButton.UseVisualStyleBackColor = true;
+            this.editSelectedButton.Click += new System.EventHandler(this.editSelectedButton_Click);
             // 
             // deckNameLabel
             // 

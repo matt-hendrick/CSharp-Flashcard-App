@@ -20,8 +20,8 @@ namespace FlashcardLibrary
 
         void DeleteCard(int CardID);
 
-        void EditDeck(DeckModel deck, int deckID);
+        void EditDeck(DeckModel deck, int DeckID);
 
-        void EditCard(CardModel card);
+        void EditCard(CardModel card, int CardID);
     }
 }

@@ -109,21 +109,29 @@ namespace FlashcardLibrary
             }
         }
 
-        public void EditDeck(DeckModel deck, int deckID)
+        public void EditDeck(DeckModel deck, int DeckID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
             {
                 var parameters = new DynamicParameters();
-                parameters.Add("@ID", deckID);
+                parameters.Add("@ID", DeckID);
                 parameters.Add("@DeckName", deck.DeckName);
 
                 connection.Execute("dbo.spDecks_Edit", parameters, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public void EditCard(CardModel card)
+        public void EditCard(CardModel card, int CardID)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@ID", CardID);
+                parameters.Add("@CardFront", card.CardFront);
+                parameters.Add("@CardBack", card.CardBack);
+
+                connection.Execute("dbo.spCards_Edit", parameters, commandType: CommandType.StoredProcedure);
+            }
         }
     }
 }

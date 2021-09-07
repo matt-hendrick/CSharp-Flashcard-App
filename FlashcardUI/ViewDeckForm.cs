@@ -91,5 +91,24 @@ namespace FlashcardUI
             }
             InitializeDeck();
         }
+
+        private void editSelectedButton_Click(object sender, EventArgs e)
+        {
+            selectedCard = (CardModel)cardListbox.SelectedItem;
+
+            if (selectedCard != null)
+            {
+                EditCardForm form = new EditCardForm(this, selectedCard.ID);
+                form.Show();
+            }
+        }
+
+
+        public void CardEditComplete(CardModel card)
+        {
+            availableCards.Remove(selectedCard);
+            availableCards.Add(card);
+            InitializeDeck();
+        }
     }
 }
