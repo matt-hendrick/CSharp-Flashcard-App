@@ -89,7 +89,13 @@ namespace FlashcardLibrary
 
         public void DeleteDeck(int DeckID)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@ID", DeckID);
+
+                connection.Execute("dbo.spDecks_DeleteADeck", parameters, commandType: CommandType.StoredProcedure);
+            }
         }
 
         public void DeleteCard(int CardID)

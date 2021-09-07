@@ -13,15 +13,16 @@ namespace FlashcardUI
     public partial class DeckSelectForm : Form, IDeckRequester
     { 
         private List<DeckModel> availableDecks = DatabaseConnector.Connection.GetAll_Decks();
+        private DeckModel selectedDeck = new DeckModel();
 
         public DeckSelectForm()
         {
             InitializeComponent();
 
-            InitializeList();
+            InitializeDeckList();
         }
 
-        private void InitializeList()
+        private void InitializeDeckList()
         {
             deckListbox.DataSource = null;
 
@@ -31,11 +32,11 @@ namespace FlashcardUI
 
         private void openSelectedButton_Click(object sender, EventArgs e)
         {
-            DeckModel deck = (DeckModel)deckListbox.SelectedItem;
+            selectedDeck = (DeckModel)deckListbox.SelectedItem;
 
-            if (deck != null)
+            if (selectedDeck != null)
             {
-                 ViewDeckForm form = new ViewDeckForm(deck);
+                 ViewDeckForm form = new ViewDeckForm(selectedDeck);
                  form.Show();
             }
            
@@ -50,7 +51,20 @@ namespace FlashcardUI
         public void DeckCreationComplete(DeckModel deck)
         {
             availableDecks.Add(deck);
-            InitializeList();
+            InitializeDeckList();
+        }
+
+        private void deleteSelectedButton_Click(object sender, EventArgs e)
+        {
+            selectedDeck = (DeckModel)deckListbox.SelectedItem;
+
+            if (selectedDeck != null)
+            {
+                DatabaseConnector.Connection.DeleteDeck(selectedDeck.ID);
+
+                availableDecks.Remove(selectedDeck);
+            }
+            InitializeDeckList();
         }
     }
 }
