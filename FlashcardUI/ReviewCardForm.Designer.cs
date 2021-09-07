@@ -109,6 +109,7 @@ namespace FlashcardUI
             this.cardTextLabel.Size = new System.Drawing.Size(164, 47);
             this.cardTextLabel.TabIndex = 22;
             this.cardTextLabel.Text = "Card Text";
+            this.cardTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flipButton
             // 

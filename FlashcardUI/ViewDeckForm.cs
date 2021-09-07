@@ -56,7 +56,7 @@ namespace FlashcardUI
 
         private void createNewButton_Click(object sender, EventArgs e)
         {
-            CreateCardForm form = new CreateCardForm(this);
+            CreateCardForm form = new CreateCardForm(this, currentDeck.ID);
             form.Show();
         }
 
