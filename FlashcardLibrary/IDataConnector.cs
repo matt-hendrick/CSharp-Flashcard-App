@@ -19,5 +19,9 @@ namespace FlashcardLibrary
         void DeleteDeck(int DeckID);
 
         void DeleteCard(int CardID);
+
+        void EditDeck(DeckModel deck, int deckID);
+
+        void EditCard(CardModel card);
     }
 }

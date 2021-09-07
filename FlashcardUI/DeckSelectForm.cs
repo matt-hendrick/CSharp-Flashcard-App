@@ -66,5 +66,23 @@ namespace FlashcardUI
             }
             InitializeDeckList();
         }
+
+        private void editSelectedButton_Click(object sender, EventArgs e)
+        {
+            selectedDeck = (DeckModel)deckListbox.SelectedItem;
+
+            if (selectedDeck != null) 
+            { 
+                EditDeckForm form = new EditDeckForm(this, selectedDeck.ID);
+                form.Show();
+            }
+        }
+
+        public void DeckEditComplete(DeckModel deck)
+        {
+            availableDecks.Remove(selectedDeck);
+            availableDecks.Add(deck);
+            InitializeDeckList();
+        }
     }
 }

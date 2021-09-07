@@ -8,5 +8,7 @@ namespace FlashcardUI
     public interface IDeckRequester
     {
         void DeckCreationComplete(DeckModel deck);
+
+        void DeckEditComplete(DeckModel deck);
     }
 }

@@ -108,5 +108,22 @@ namespace FlashcardLibrary
                 connection.Execute("dbo.spCards_DeleteACard", parameters, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public void EditDeck(DeckModel deck, int deckID)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@ID", deckID);
+                parameters.Add("@DeckName", deck.DeckName);
+
+                connection.Execute("dbo.spDecks_Edit", parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void EditCard(CardModel card)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
