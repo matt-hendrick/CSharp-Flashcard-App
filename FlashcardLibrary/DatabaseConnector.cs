@@ -26,7 +26,6 @@ namespace FlashcardLibrary
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-
         public void CreateDeck(DeckModel deck)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
@@ -138,14 +137,7 @@ namespace FlashcardLibrary
 
         public void EditCardDifficulty(CardModel card, string userResponseType, int CardID)
         {
-            double newDifficulty = 1;
-                
-            if (card.Difficulty != 0) newDifficulty = card.Difficulty;
-
-            if (userResponseType == "again") newDifficulty *= 2;
-            if (userResponseType == "hard") newDifficulty *= 1.5;
-            if (userResponseType == "good") newDifficulty /= 1.75;
-            if (userResponseType == "easy") newDifficulty /= 1.5;
+            double newDifficulty = EvaluateCardDifficulty(card.Difficulty, userResponseType);
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
             {
@@ -155,6 +147,20 @@ namespace FlashcardLibrary
 
                 connection.Execute("dbo.spCards_EditCardDifficulty", parameters, commandType: CommandType.StoredProcedure);
             }
+        }
+
+        private double EvaluateCardDifficulty(double cardDifficulty, string userResponseType)
+        {
+            double newDifficulty = 1;
+
+            if (cardDifficulty != 0) newDifficulty = cardDifficulty;
+
+            if (userResponseType == "again") newDifficulty *= 2;
+            else if (userResponseType == "hard") newDifficulty *= 1.5;
+            else if (userResponseType == "good") newDifficulty /= 1.75;
+            else if (userResponseType == "easy") newDifficulty /= 1.5;
+
+            return newDifficulty;
         }
     }
 }
