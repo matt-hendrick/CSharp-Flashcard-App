@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FlashcardLibrary
 {
-    public interface IDataConnector
+    public interface IDatabaseConnector
     {
 
         void CreateDeck(DeckModel deck);

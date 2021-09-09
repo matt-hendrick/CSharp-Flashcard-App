@@ -9,11 +9,11 @@ using System.Text;
 
 namespace FlashcardLibrary
 {
-    public class DatabaseConnector : IDataConnector
+    public class DatabaseConnector : IDatabaseConnector
     {
         private const string DB = "Flashcards";
 
-        public static IDataConnector Connection { get; private set; }
+        public static IDatabaseConnector Connection { get; private set; }
 
         public static void InitializeDatabaseConnection()
         {
