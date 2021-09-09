@@ -30,6 +30,11 @@ namespace FlashcardLibrary.Models
         public int DeckID { get; set; }
 
         /// <summary>
+        /// Difficulty level of the card
+        /// </summary>
+        public double Difficulty { get; set; }
+
+        /// <summary>
         /// Combined front/back card text
         /// </summary>
         public string CombinedName

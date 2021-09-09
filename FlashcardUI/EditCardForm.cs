@@ -33,7 +33,7 @@ namespace FlashcardUI
                 card.CardFront = cardFrontTextbox.Text;
                 card.CardBack = cardBackTextbox.Text;
 
-                DatabaseConnector.Connection.EditCard(card, selectedCardID);
+                DatabaseConnector.Connection.EditCardText(card, selectedCardID);
 
                 callingForm.CardEditComplete(card);
 

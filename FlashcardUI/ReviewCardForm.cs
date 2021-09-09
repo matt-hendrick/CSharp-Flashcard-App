@@ -1,4 +1,5 @@
-﻿using FlashcardLibrary.Models;
+﻿using FlashcardLibrary;
+using FlashcardLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,21 +60,25 @@ namespace FlashcardUI
 
         private void againButton_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Connection.EditCardDifficulty(cardsInDeck[currentIndex], "again", cardsInDeck[currentIndex].ID);
             IterateThroughDeck();
         }
 
         private void hardButton_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Connection.EditCardDifficulty(cardsInDeck[currentIndex], "hard", cardsInDeck[currentIndex].ID);
             IterateThroughDeck();
         }
 
         private void goodButton_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Connection.EditCardDifficulty(cardsInDeck[currentIndex], "good", cardsInDeck[currentIndex].ID);
             IterateThroughDeck();
         }
 
         private void easyButton_Click(object sender, EventArgs e)
         {
+            DatabaseConnector.Connection.EditCardDifficulty(cardsInDeck[currentIndex], "easy", cardsInDeck[currentIndex].ID);
             IterateThroughDeck();
         }
 

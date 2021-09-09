@@ -22,6 +22,8 @@ namespace FlashcardLibrary
 
         void EditDeck(DeckModel deck, int DeckID);
 
-        void EditCard(CardModel card, int CardID);
+        void EditCardText(CardModel card, int CardID);
+
+        void EditCardDifficulty(CardModel card, string userResponseType, int CardID);
     }
 }

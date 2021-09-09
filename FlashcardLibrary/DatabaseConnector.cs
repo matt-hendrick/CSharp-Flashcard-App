@@ -71,6 +71,8 @@ namespace FlashcardLibrary
                 cardList = connection.Query<CardModel>("dbo.spCards_GetAll", parameters, commandType: CommandType.StoredProcedure).ToList();
             }
 
+            cardList.OrderBy(x => x.Difficulty);
+
             return cardList;
         }
 
@@ -121,7 +123,7 @@ namespace FlashcardLibrary
             }
         }
 
-        public void EditCard(CardModel card, int CardID)
+        public void EditCardText(CardModel card, int CardID)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
             {
@@ -130,7 +132,28 @@ namespace FlashcardLibrary
                 parameters.Add("@CardFront", card.CardFront);
                 parameters.Add("@CardBack", card.CardBack);
 
-                connection.Execute("dbo.spCards_Edit", parameters, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spCards_EditCardText", parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void EditCardDifficulty(CardModel card, string userResponseType, int CardID)
+        {
+            double newDifficulty = 1;
+                
+            if (card.Difficulty != 0) newDifficulty = card.Difficulty;
+
+            if (userResponseType == "again") newDifficulty *= 2;
+            if (userResponseType == "hard") newDifficulty *= 1.5;
+            if (userResponseType == "good") newDifficulty /= 1.75;
+            if (userResponseType == "easy") newDifficulty /= 1.5;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionString(DB)))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@ID", CardID);
+                parameters.Add("@Difficulty", newDifficulty);
+
+                connection.Execute("dbo.spCards_EditCardDifficulty", parameters, commandType: CommandType.StoredProcedure);
             }
         }
     }
